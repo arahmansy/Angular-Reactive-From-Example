@@ -1,0 +1,59 @@
+<hello name="{{ name }}"></hello>
+<p>Start editing to see some magic happen :)</p>
+<!-- CSS only -->
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+  crossorigin="anonymous"
+/>
+
+<div class="container-fluid">
+  <h2>Registeration Form</h2>
+  <form [formGroup]="registerationFrom" (ngSubmit)="onsubmit()">
+    <div class="form-group">
+      <label>User Name </label>
+      <input type="text" class="form-control" formControlName="username" />
+    </div>
+
+    <div class="form-group">
+      <label>Password </label>
+      <input type="password" class="form-control" formControlName="password" />
+    </div>
+
+    <div class="form-group">
+      <label>Conferm Password </label>
+      <input
+        type="password"
+        class="form-control"
+        formControlName="confirmpassword"
+      />
+    </div>
+
+    <div formGroupName="address">
+      <div>
+        <div class="form-group"></div>
+        <label>City </label>
+        <input type="text" class="form-control" formControlName="city" />
+      </div>
+
+      <div>
+        <div class="form-group"></div>
+        <label>State </label>
+        <input type="text" class="form-control" formControlName="state" />
+      </div>
+
+      <div>
+        <div class="form-group"></div>
+        <label>Postal Code </label>
+        <input type="text" class="form-control" formControlName="postalcode" />
+      </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-secondary ml-2" (click)="loadapi()">
+      Load Api
+    </button>
+  </form>
+  {{ registerationFrom.value | json }}
+</div>
